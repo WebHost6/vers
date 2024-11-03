@@ -265,6 +265,12 @@
         .vers {
             color: #646464;
             font-size: 14px;
+            cursor: none;
+        }
+        
+        .vers:hover {
+            color: #812a81;
+            text-decoration-line: underline;
         }
         .creds {  /* awsome fucking glowing animation */
             -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -291,10 +297,9 @@
     </div>
 
     <div id="page1" class="page active">
-        <p class="vers" id="vers"></p>
-        
         <h1>Byte Hub</h1>
-        <div class=""></div>
+        <br>
+        <a class="vers" id="update" href="https://raw.githubusercontent.com/WebHost6/vers/refs/heads/main/byte3.1.3" download></a>
         <p>Everything you need, all in one place.</p> <p class="creds">Developed by Brody S</p>
     </div><div id="page2" class="page">
         <h1>Unblocker</h1>
@@ -339,19 +344,17 @@
         
         let url = `https://raw.githubusercontent.com/WebHost6/vers/refs/heads/main/${current}.html`;
 
-        try {
-                const response = await fetch(url);
-                if (response.ok) {
-                    document.getElementById('result').innerText = `File "${scriptFileName}" exists in the repository.`;
-                } else if (response.status === 404) {
-                    document.getElementById('result').innerText = `File "${scriptFileName}" does not exist in the repository.`;
-                } else {
-                    document.getElementById('result').innerText = `Error: ${response.status} ${response.statusText}`;
-                }
-            } catch (error) {
-                document.getElementById('result').innerText = 'An error occurred while checking the file.';
-                console.error(error);
+        fetch(url)
+          .then((response) => {
+            if (response.status === 404) {
+              document.getElementById('update').innerText = "a new update is avalable, click here to update"
+            } else {
+              console.log("File found!");
             }
+          })
+          .catch((error) => {
+            console.error("There was an error fetching the file:", error);
+          });
         
         
         //let version1 = " 3.1.3";
@@ -399,6 +402,7 @@
                 document.querySelector('button[onclick="changeTabTitle()"]'),
                 document.getElementById('executeCodeInput'),
                 document.querySelector('button[onclick="executeCode()"]'),
+                document.getElementById('update'),
                 document.getElementById('urlInput'),
                 document.querySelector('button[onclick="loadWebsite()"]'),
                 document.querySelector('button[onclick="toggleFullscreen()"]')
