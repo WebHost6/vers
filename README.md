@@ -5,8 +5,9 @@ the offical github repository for byte hub. the current version is 3.1.4
 > everything you need, all in one place
 
 from what i can tell, the tech department switched from a block list to a allow list, meaning every website is blocked other then the websites they specify. this is great for me
-becasue the unblocking websites people were using have been all hit by this block wave. this means more traffic for be, unfortinatly my website got hit too. but github is not
-unblocked, so this the offical github repository.
+becasue the unblocking websites people were using have been all hit by this block wave. this means more traffic for me, unfortinatly my website got hit too. but github is
+unblocked, so this the offical github repository and will stand in place of a domain for now.
+despite the website getting blocked i will keep it up for backwards compatibility for kids who dont have it blocked in their schools
 
 ## instructions for install
 
