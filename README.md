@@ -20,6 +20,13 @@ unblocked, so this the offical github repository.
 
 5. (optinal but recommended) bookmake the page it brings you to.
 
+## usage
+
+click on the "unblocker" tab and enter the website url into the input, if you want the url of a blocked website but when you try to click on the website and copy the link it gets blocked then
+you can right click on it and select "copy link address"
+
+> [!WARNING]
+> this is not a search engine, you cant type whatever you want into here it has to be a url, also not all urls work, see the following section for the reason
 
 
 
