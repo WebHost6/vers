@@ -28,13 +28,19 @@ you can right click on it and select "copy link address"
 > [!WARNING]
 > this is not a search engine, you cant type whatever you want into here it has to be a url, also not all urls work, see the following section for the reason
 
-
+## why not all websites work
+if a website works is not up to me, its up to the creator or orginization behind the website. most large websites like google, youtube, discord, etc do not allow embeding and will
+give the message "______ refused to connect" this is because people could create a malicious webpage that pretends to be a diffrent website and when they ask you to log in it steals
+your password, so this was done to prevent that. im sure there are other reasons but thats the one im aware of.
 
 ## Todo
 
 - [x] update system
   - broken due to website blockage, will be fixed soon
 - [ ] save settings
-
-
+   
+   
+   
+   
+   
 > "computer crimes are not capital crimes and are not punishable by the death penalty"
