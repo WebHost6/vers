@@ -19,3 +19,11 @@ unblocked, so this the offical github repository.
 4. open the file it downloaded by clicking it twice
 
 5. (optinal but recommended) bookmake the page it brings you to.
+
+
+
+
+
+
+
+> "computer crimes are not capital crimes and are not punishable by the death penalty"
