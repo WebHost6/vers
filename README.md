@@ -38,12 +38,13 @@ your password, so this was done to prevent that. im sure there are other reasons
 - [x] update system
   - broken due to website blockage, will be fixed soon
 - [ ] save settings
-   	
+   	 
    
    	 
    
-   	
-   
-   	
+ 
+    
+    
+   	 
    
 > "computer crimes are not capital crimes and are not punishable by the death penalty"
