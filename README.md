@@ -44,6 +44,6 @@ your password, so this was done to prevent that. im sure there are other reasons
 - [ ] save settings
 ## EaglerCraft
 this repository also hosts versions 2 versions of eagler craft, one being slclient, which is a modded version that adds netherite, copper and a lot of modern blocks to it. the other being the base
-1.8.8 version of eagler craft to use for multiplayer. the unstallation process is the same as it is for byte hub
+1.8.8 version of eagler craft to use for multiplayer. the unstallation process is the same as it is for byte hub execpt the files are in the '/eag' direcory
 
 > "computer crimes are not capital crimes and are not punishable by the death penalty"
