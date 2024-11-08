@@ -359,7 +359,7 @@
             if (fileContents !== null) {
               fileData = fileContents;
               fileData = fileData.slice(0, -1);
-              console.log("File contents:", fileData);
+              console.log("current version is ", fileData);
                 if (current !== fileData)
                 {
                     document.getElementById('update').innerText = "new version avalable (" + fileData + "), click here to update"
