@@ -9,8 +9,8 @@ becasue the unblocking websites people were using have been all hit by this bloc
 unblocked, so this the offical github repository and will stand in place of a domain for now.
 despite the website getting blocked i will keep it up for backwards compatibility for kids who dont have it blocked in their schools
 
-> [!NOTE]
-> if there is a feature you would like to add or a bug you would like me to fix, dont hesitate to create an issue
+> [!CAUTION]
+> If you visit the website on MacOS, it pretends to be a calculator website. this is because the admisistration at our district use Macbooks.
 
 ## instructions for install
 
