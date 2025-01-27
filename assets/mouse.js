@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let cursor = document.querySelector('.cursor');
-    let cursorInner = document.querySelector('.cursor-inner');
+    const cursor = document.querySelector('.cursor');
+    const cursorInner = document.querySelector('.cursor-inner');
 
     function getOperatingSystem() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -22,28 +22,35 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("hide-cursor");
     } else {
         if (cursor && cursorInner) {
-            let targetPosition = { x: 0, y: 0 };
-            let innerCursorPosition = { x: 0, y: 0 };
+            let targetPosition = { x: 0, y: 0 }; // Position of the mouse pointer
+            let innerCursorPosition = { x: 0, y: 0 }; // Smoothed inner cursor position
 
             document.addEventListener('mousemove', (e) => {
-                targetPosition.x = e.clientX;
-                targetPosition.y = e.clientY;
+                targetPosition.x = e.pageX; // Use `pageX` and `pageY` for consistency with scrolling
+                targetPosition.y = e.pageY;
                 updateCursorPosition();
             });
 
             function updateCursorPosition() {
-                if (cursor && cursorInner) {
-                    const scrollX = window.scrollX || 0;
-                    const scrollY = window.scrollY || 0;
-
-                    const adjustedX = targetPosition.x + scrollX;
-                    const adjustedY = targetPosition.y + scrollY;
-
-                    cursor.style.left = `${adjustedX}px`;
-                    cursor.style.top = `${adjustedY}px`;
-                    cursorInner.style.left = `${adjustedX}px`;
-                    cursorInner.style.top = `${adjustedY}px`;
+                if (cursor) {
+                    cursor.style.left = `${targetPosition.x}px`;
+                    cursor.style.top = `${targetPosition.y}px`;
                 }
+            }
+
+            function updateInnerCursor() {
+                const dx = (targetPosition.x - innerCursorPosition.x) * 0.15;
+                const dy = (targetPosition.y - innerCursorPosition.y) * 0.15;
+
+                innerCursorPosition.x += dx;
+                innerCursorPosition.y += dy;
+
+                if (cursorInner) {
+                    cursorInner.style.left = `${innerCursorPosition.x}px`;
+                    cursorInner.style.top = `${innerCursorPosition.y}px`;
+                }
+
+                requestAnimationFrame(updateInnerCursor);
             }
 
             document.addEventListener('mousedown', () => {
@@ -64,22 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     cursorInner?.classList.remove('scroll');
                 }, 150);
             });
-
-            function updateInnerCursor() {
-                const dx = (targetPosition.x - innerCursorPosition.x) * 0.15;
-                const dy = (targetPosition.y - innerCursorPosition.y) * 0.15;
-                innerCursorPosition.x += dx;
-                innerCursorPosition.y += dy;
-
-                const scrollX = window.scrollX || 0;
-                const scrollY = window.scrollY || 0;
-
-                if (cursorInner) {
-                    cursorInner.style.left = `${innerCursorPosition.x + scrollX}px`;
-                    cursorInner.style.top = `${innerCursorPosition.y + scrollY}px`;
-                }
-                requestAnimationFrame(updateInnerCursor);
-            }
 
             requestAnimationFrame(updateInnerCursor);
 
