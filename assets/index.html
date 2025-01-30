@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hades - Ethicist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #e0e0e0;
+      cursor: none;
+    }
+
+    header {
+      background: linear-gradient(135deg, #000000, #2c0000);
+      color: #e0e0e0;
+      padding: 2em 0;
+      text-align: center;
+      border-bottom: 2px solid #444;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .fade-in {
+      animation: fadeIn 2s forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut 2s forwards;
+    }
+
+    header .logo img {
+      width: 70px;
+      height: auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Cinzel', serif;
+      font-size: 2.5em;
+      color: #ff0000;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin: 1em 0;
+    }
+
+    nav ul li {
+      margin: 0 1.5em;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    nav ul li a:hover {
+      color: #ff0000;
+    }
+
+    #hero {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(44, 0, 0, 0.8)), url('images/underworld.jpg') no-repeat center center/cover;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e0e0e0;
+      text-align: center;
+    }
+
+    .hero-content {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2em;
+      border-radius: 10px;
+      outline-style: solid;
+      outline-color: white;
+      outline-width: 1px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.5em 2em;
+      background-color: #ff0000;
+      color: #e0e0e0;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      cursor: none;
+    }
+
+    .cta-button:hover {
+      background-color: #d40000;
+      cursor: none;
+    }
+
+    main {
+      padding: 3em;
+      background-color: #000;
+    }
+
+    main h2 {
+      color: #ff0000;
+      font-family: 'Cinzel', serif;
+      font-size: 2em;
+    }
+
+    main p {
+      color: #4a4a4a;
+      font-family: 'Flow Rounded', sans-serif;
+    }
+
+    main .placeholder {
+      display: inline-block;
+      width: 8em;
+      height: 1em;
+      margin: 0.2em 0;
+    }
+
+    .placeholder {
+      color: #4a4a4a;
+      font-family: 'Flow Rounded', sans-serif;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border: 2px solid #ff0000;
+      border-radius: 10px;
+      padding: 2em;
+      margin: 1em;
+      flex: 1 1 calc(45% - 2em);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .card h3 {
+      color: #ff0000;
+      font-family: 'Cinzel', serif;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #000000, #2c0000);
+      color: #e0e0e0;
+      text-align: center;
+      padding: 2em 0;
+      border-top: 2px solid #444;
+    }
+
+    footer p {
+      color: #4a4a4a;
+      margin: 0.5em 0;
+      font-family: 'Flow Rounded', sans-serif;
+    }
+    .cursor, .cursor-inner {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, border-radius 0.2s ease;
+      z-index: 10000;
+    }
+    .cursor {
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(3px);
+      position: fixed;
+      transform: translate(-50%, -50%);
+      z-index: 100000;
+    }
+    .cursor-inner {
+      width: 15px;
+      height: 15px;
+      background-color: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      position: fixed;
+      transform: translate(-50%, -50%);
+      z-index: 100000;
+    }
+    .cursor.hover {
+      border-radius: 8px;
+    }
+    .cursor-inner.hover {
+      width: 18.75px;
+      height: 18.75px;
+      border-radius: 5px;
+    }
+    .cursor.scroll {
+      height: 40px;
+      width: 20px;
+      border-radius: 10px;
+    }
+    .blur-div {
+      width: 10px;
+      height: 10px;
+      background-color: white;
+            
+    }
+    .cursor-inner.scroll {
+      width: 10px;
+      height: 10px;
+    }
+    .cursor.clicked {
+      width: 20px;
+      height: 20px;
+    }
+    .hide-cursor {
+      cursor: none; /* Hide the default cursor  */
+    }
+    .mouse-box {  /* prevent the real mouse cursor from appearing, took me ages to firgure out how to do this :sob: */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: solid #c0c0c0; 
+      z-index: -2;
+    }
+    .nav {
+      cursor: none;
+    }
+    
+    .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+        
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://github.com/WebHost6/vers/blob/main/assets/image%20(1).png?raw=true">
+    </div>
+    <h1>Hades - Ethicist</h1>
+    <nav>
+      <ul>
+        <li><a class="nav" href="#about">About</a></li>
+        <li><a class="nav" href="#services">Services</a></li>
+        <li><a class="nav" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Guiding You Through Morality</h2>
+      <p class="placeholder">Welcome to the realm where ancient wisdom meets modern ethics.</p>
+      <a href="#about" class="cta-button">Learn More</a>
+    </div>
+  </section>
+  <main>
+    <section id="about" class="fade">
+      <h2>About Hades</h2>
+      <p>Welcome to the realm of Hades, the ancient ruler of the underworld. With timeless wisdom and unparalleled insight, Hades provides ethical guidance that transcends mortal understanding. Join me as we navigate the complexities of moral philosophy.</p>
+    </section>
+    <section id="services" class="fade">
+      <h2>Services</h2>
+      <div class="service-cards fade">
+        <div class="card fade">
+          <h3>Ethical Consultations</h3>
+          <p>Providing personalized guidance on ethical dilemmas.</p>
+        </div>
+        <div class="card fade">
+          <h3>Moral Philosophy Workshops</h3>
+          <p>Engaging workshops to deepen your understanding of moral philosophy.</p>
+        </div>
+        <div class="card fade">
+          <h3>Conflict Resolution</h3>
+          <p>Helping you navigate and resolve conflicts with wisdom and fairness.</p>
+        </div>
+        <div class="card fade">
+          <h3>Guidance on Navigating the Underworld</h3>
+          <p>Expert advice for those journeying through life's toughest challenges.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="contact" class="fade">
+    <h2>Contact</h2>
+    <p>Email: hades@ethicist.com</p>
+    <p>Phone: 123-456-7890</p>
+    <p>Address: Hades' Underworld Office, River Styx, Greece</p>
+  </footer>
+  
+  <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  
+  <div class="mouse-box"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-inner" id="cursor-in"></div>
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
+  
+  <script>
+    const coords = { x: 0, y: 0};
+const circles = document.querySelectorAll(".circle");
+const colors = [
+  "#ffb56b",
+  "#fdaf69",
+  "#f89d63",
+  "#f59761",
+  "#ef865e",
+  "#ec805d",
+  "#e36e5c",
+  "#df685c",
+  "#d5585c",
+  "#d1525c",
+  "#c5415d",
+  "#c03b5d",
+  "#b22c5e",
+  "#ac265e",
+  "#9c155f",
+  "#950f5f",
+  "#830060",
+  "#7c0060",
+  "#680060",
+  "#60005f",
+  "#48005f",
+  "#3d005e"
+];
+
+let lastScrollTop = 0;
+let scrollAmount = 0;
+
+circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+});
+
+window.addEventListener("mousemove", function(e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY + scrollAmount;
+});
+
+window.addEventListener("scroll", function(e) {
+  const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+  scrollAmount = currentScrollTop - lastScrollTop;
+  lastScrollTop = currentScrollTop;
+
+  coords.y += scrollAmount;
+});
+
+function animateCircles() {
+
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index ) / circles.length;  
+        /* circle.style.scale = index / 10; */      //  change tail direction 
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+    });
+    
+    requestAnimationFrame(animateCircles);
+}
+
+animateCircles();
+  </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    let cursor = document.querySelector('.cursor');
+        let cursorInner = document.querySelector('.cursor-inner');
+        let iCP = { x: 0, y: 0 };
+        let tP = { x: 0, y: 0 };
+        let tE = false;
+        let sT = null;
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+            cursorInner.style.left = `${e.clientX}px`;
+            cursorInner.style.top = `${e.clientY}px`;
+            tP.x = e.clientX;
+            tP.y = e.clientY;
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('clicked');
+            cursorInner.classList.add('clicked');
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('clicked');
+            cursorInner.classList.remove('clicked');
+        });
+
+        document.addEventListener('wheel', () => {
+            if (!tE) {
+                cursor.classList.add('scroll');
+                cursorInner.classList.add('scroll');
+                clearTimeout(sT);
+                sT = setTimeout(() => {
+                    cursor.classList.remove('scroll');
+                    cursorInner.classList.remove('scroll');
+                }, 150);
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursor.classList.remove('clicked');
+            cursorInner.classList.remove('clicked');
+        });
+
+        window.addEventListener('wheel', (e) => {
+            if (e.deltaY > 0) {
+                iCP.y += 2;
+            } else {
+                iCP.y -= 2;
+            }
+        });
+
+        async function updateInnerCursor() {
+            const dx = (tP.x - iCP.x) * 0.2;
+            const dy = (tP.y - iCP.y) * 0.2;
+            iCP.x += dx;
+            iCP.y += dy;
+            cursorInner.style.left = `${iCP.x}px`;
+            cursorInner.style.top = `${iCP.y}px`;
+            requestAnimationFrame(updateInnerCursor);
+        }
+        requestAnimationFrame(updateInnerCursor);
+
+        function showTooltip(t) {
+            cursor.classList.add('tooltip');
+            cursor.innerHTML = t;
+            tE = true;
+        }
+
+        function hideTooltip() {
+            cursor.classList.remove('tooltip');
+            cursor.innerHTML = '';
+            tE = false;
+            iCP = { x: tP.x, y: tP.y };
+            cursor.style.left = `${tP.x}px`;
+            cursor.style.top = `${tP.y}px`;
+        }
+
+        function updateTooltip(t) {
+            cursor.innerHTML = t;
+        }
+
+});
+  </script>
+</body>
+</html>
