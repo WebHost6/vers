@@ -24,6 +24,10 @@ despite the website getting blocked i will keep it up for backwards compatibilit
 
 5. (optinal but recommended) bookmake the page it brings you to.
 
+## Use without installation
+
+to use byte hub without installing you can copy and paste the contents of ```dataurl.txt``` into your address bar and hit enter.
+
 ## usage
 
 click on the "unblocker" tab and enter the website url into the input, if you want the url of a blocked website but when you try to click on the website and copy the link it gets blocked then
