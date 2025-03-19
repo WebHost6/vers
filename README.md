@@ -42,6 +42,7 @@ your password, so this was done to prevent that. im sure there are other reasons
 - [x] update system
   - broken due to website blockage, will be fixed soon
 - [ ] save settings
+- [ ] add js linux file for simple unblocked linux emulation (https://github.com/killinux/jslinux-bellard)
 ## EaglerCraft
 this repository also hosts versions 2 versions of eagler craft, one being slclient, which is a modded version that adds netherite, copper and a lot of modern blocks to it. the other being the base
 1.8.8 version of eagler craft to use for multiplayer. the unstallation process is the same as it is for byte hub execpt the files are in the `/eag` direcory
