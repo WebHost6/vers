@@ -128,6 +128,16 @@
         statelement.classList.remove('green');
         statelement.classList.add('orange');
         statelement.innerText = "idle"
+        
+            var newWindow = window.open("about:blank", "_blank");
+        
+            if (newWindow === null || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                alert('Please allow popups to open bytestellar');
+            }
+            else {
+              newWindow.close()
+            }
+        
         var newWindow = window.open("about:blank", "_blank");
 
         newWindow.document.write('<html><head><title>New Tab</title><style>body {background-color:black;}</style></head><body>');
