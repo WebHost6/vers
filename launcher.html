@@ -77,40 +77,7 @@
           await delay(100);
         }
 
-        await appendLog("[02:30:23+353][main/INFO][ByteRuntime]:  - EXT_color_buffer_float");
-        await appendLog("[02:30:23+354][main/INFO][ByteRuntime]: ES6 Shim Status: Disabled");
-        await appendLog("[02:30:23+362][main/INFO][ByteRuntime]: _ Compiling webASM. vers 1.5532.42.111. to comp_asm_main.asm");
-        await appendLog("[02:30:23+390][main/INFO][ByteRuntime]: XML precompliation configuration is disabled, falling back to systemctl");
-        await appendLog("[02:30:23+397][main/INFO][ByteRuntime]: Byte comp finished, starting process...");
-        await delay(2000);
-        await appendLog("[02:30:24+126][main/INFO][ByteRuntime]: Exeption on comp_asm_main.asm:4623:5, falling back to launcher");
-        await appendLog("Launcher class called upon. PID 5433. Restarting main...");
-        await delay(100);
-        await appendLog("Failed to find exeption source. attempting to restart...");
-        await delay(3000);
-        await appendLog("[02:30:23+353][main/INFO][ByteRuntime]:  - EXT_color_buffer_float");
-        await appendLog("[02:30:23+354][main/INFO][ByteRuntime]: ES6 Shim Status: Disabled");
-        await appendLog("[02:30:23+362][main/INFO][ByteRuntime]: _ Compiling webASM. vers 1.5532.42.111. to comp_asm_main.asm");
-        await appendLog("[02:30:23+390][main/INFO][ByteRuntime]: XML precompliation configuration is disabled, falling back to systemctl");
-        await appendLog("[02:30:23+397][main/INFO][ByteRuntime]: Byte comp finished, starting process...");
-        await delay(1000);
-        await appendLog("[02:30:23+397][main/INFO][ByteRuntime]: Finished pre_Comp sucessfully");
-        if (Math.floor(Math.random() * 11) === 10) {
-          await appendLog("[02:30:23+353][main/INFO][ByteRuntime]:  - EXT_color_buffer_float");
-          await delay(500);
-        }
-        await appendLog("[01:08:12+004][Client thread/INFO][DeferredGBufferPipelineCompiler]: Compiling program for core state: 1 2 4 8 16 32 64, ext state: 1 2 4");
-        await appendLog("[01:08:11+041][Client thread/INFO][DeferredPipelineCompiler]: Compiling asm: Byte:glsl/deferred/clouds_sun_occlusion.fsh");
-        await delay(500);
-        await appendLog("[01:08:10+900][Client thread/INFO][ByteDeferredPipeline]: Rebuilding pipeline...");
-        await delay(100);
-        await appendLog("[09:19:34+235][IntegratedServer/INFO][Byte]: channel lost connection: TextComponent{text='End of stream', siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null, insertion=null}}");
-        await appendLog("[09:03:51+363][IntegratedServer/INFO][ByteIntegratedServer]: Starting ByteX integrated server worker...");
-        await delay(800);
-        await appendLog("[09:03:51+397][Client thread/INFO][ServerController]: Integrated server signaled a successful boot");
-        await delay(500);
-        await appendLog("[09:03:54+578][Client thread/WARN][ChannelManager]: Unable to run empty ChannelEvent(2): meta:missing_comp");
-        await appendLog("[09:03:51+397][Client thread/INFO][ServerController]: Integrated server runtime initialization was successful");
+        
 
         await appendLog("██████╗ ████████╗██╗   ██╗███████╗    ██████╗ ██╗   ██╗███╗   ██╗████████╗██╗███╗   ███╗███████╗");
         await delay(50);
@@ -124,6 +91,20 @@
         await delay(50);
         await appendLog("╚═════╝    ╚═╝      ╚═╝   ╚══════╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝");
         await delay(2000);
+        await appendLog(" ");
+        await appendLog("Please wait while Byte Runtime opens the proxy... (this takes a moment)");
+        await delay(2000);
+        await delay(100);
+        await delay(3000);
+        await delay(1000);
+        if (Math.floor(Math.random() * 11) === 10) {
+          await delay(500);
+        }
+        await delay(500);
+        await delay(100);
+        await delay(800);
+        await appendLog("Done!");
+        await delay(500);
         logWindow.close();
         statelement.classList.remove('green');
         statelement.classList.add('orange');
