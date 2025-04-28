@@ -55,6 +55,16 @@
     </div>
 
     <script>
+      
+            var newWindow = window.open("about:blank", "_blank");
+        
+            if (newWindow === null || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                alert('Please allow popups to open bytestellar and try again.');
+            }
+            else {
+              newWindow.close()
+            }
+            
         function openIframe() {
           var element = document.getElementById('stat-con');
           element.classList.remove('orange');
@@ -76,16 +86,7 @@
           logContent.scrollTop = logContent.scrollHeight;  
           await delay(100);
         }
-        var newWindow = window.open("about:blank", "_blank");
-        
-            if (newWindow === null || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                alert('Please allow popups to open bytestellar and try again.');
-            }
-            else {
-              newWindow.close()
-              logWindow.close()
-              return
-            }
+
         
 
         await appendLog("██████╗ ████████╗██╗   ██╗███████╗    ██████╗ ██╗   ██╗███╗   ██╗████████╗██╗███╗   ███╗███████╗");
@@ -118,6 +119,7 @@
         statelement.classList.remove('green');
         statelement.classList.add('orange');
         statelement.innerText = "idle"
+        
         
         var newWindow = window.open("about:blank", "_blank");
 
