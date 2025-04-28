@@ -55,6 +55,16 @@
     </div>
 
     <script>
+         var newWindow = window.open("about:blank", "_blank");
+        
+            if (newWindow === null || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                alert('Please allow popups to open bytestellar and try again.');
+            }
+            else {
+              newWindow.close()
+            }
+
+        
         function openIframe() {
           var element = document.getElementById('stat-con');
           element.classList.remove('orange');
@@ -129,14 +139,7 @@
         statelement.classList.add('orange');
         statelement.innerText = "idle"
         
-            var newWindow = window.open("about:blank", "_blank");
-        
-            if (newWindow === null || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                alert('Please allow popups to open bytestellar and try again.');
-            }
-            else {
-              newWindow.close()
-            }
+           
         
         var newWindow = window.open("about:blank", "_blank");
 
