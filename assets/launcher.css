@@ -1,0 +1,39 @@
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color:#080808;
+            display: flex;
+        }
+        button {
+            margin: 10px;
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            height: 40px;
+            background-color: #0f0f0f;
+            color: white;
+        }
+        .status {
+          background-color: #0f0f0f;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: auto;
+          padding: 7px;
+          margin: 10px;
+          border-radius: 10px;
+          outline-style: solid;
+          outline-color: #424242;
+          outline-width: 1px;
+        }
+        p {
+          color: white;
+        }
+        .orange {
+          color: orange;
+        }
+        .green {
+          color: #27f238;
+        }
