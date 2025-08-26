@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<!-- Go away -->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Launcher</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0a0a0a;
+      color: white;
+      font-family: "Segoe UI", sans-serif;
+      background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/791.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(4, 4, 4, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 70px rgba(160, 50, 255, 0.2);
+      outline-style: solid;
+      outline-width: 3px;
+      outline-color: #1c1c1c;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #b400eb;
+      text-shadow: 0 0 350px #a050ff, 0 0 50px #7020ff;
+    }
+
+    button {
+      width: 145px;
+      height: 45px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1em;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, #7a1fff, #b24bff);
+      box-shadow: 0 0 12px rgba(160, 50, 255, 0.8);
+      transition: all 0.2s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(180, 100, 255, 1);
+    }
+
+    .log {
+      width: 350px;
+      height: 180px;
+      overflow-y: auto;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(159, 64, 255, 0.1);
+      backdrop-filter: blur(8px);
+      box-shadow: inset 0 0 60px rgba(160, 50, 255, 0.4);
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    .log-entry {
+      margin: 4px 0;
+      padding: 2px 6px;
+      border-left: 2px solid #a050ff;
+      color: #e0d0ff;
+    }
+
+    .error-entry {
+      margin: 4px 0;
+      padding: 2px 6px;
+      border-left: 2px solid #ff000d;
+      color: #e0d0ff;
+    }
+
+    .changelog {
+        
+        margin-left: 30px;
+        width: 250px;
+    }
+
+    .c-log {
+      width: 250px;
+      height: 250px;
+      overflow-y: auto;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255, 0.05);
+      backdrop-filter: blur(8px);
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4);
+      color: #ababab;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    .c-log-title {
+        text-shadow: 0 0 0px #a050ff, 0 0 0px #7020ff;
+        font-size: 2em;
+        color: #b400eb;
+    }
+
+        *::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background-color: #c800ff;
+        border-radius: 10px;
+        border: 3px none #ffffff;
+      }
+
+      .modal_default_main {
+        background-color: rgba(4, 4, 4, 0.7) !important;
+        border: none !important;
+        border-radius: 20px;
+        outline-style: solid;
+        outline-width: 3px;
+        outline-color: #1c1c1c;
+        width: 500px !important;
+      }
+      .modal_default_content {
+        width: 130px !important;
+        margin-right: 30px;
+      }
+
+      .modal_default_inner {
+        background-color: rgba(4, 4, 4, 0) !important;
+        border-radius: 20px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+      }
+
+      .modal_default_cancel {
+        visibility: hidden;
+        display: none;
+      }
+
+      .modal_default_ok {
+        margin-left: 30px;
+      }
+
+      .modal_default_buttons {
+        margin-top: 0 !important;
+      }
+
+      .modal_default_input input {
+        height: 25px !important;
+        background-color: rgba(159, 64, 255, 0.1);
+        box-shadow: inset 0 0 20px rgba(160, 50, 255, 0.7);
+        border-radius: 20px;
+        outline-style: none !important;
+        border-style: none;
+        padding-left: 9px;
+        color: white;
+      }
+
+      .modal_default_background {
+        backdrop-filter: blur(2px) !important;
+        background-color: rgba(0, 0, 0, 0) !important;
+        opacity: 1 !important;
+      }
+
+      /* this styling looks so damn good. Ive for sure been getting better */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Launcher</h1>
+    <button id="launchBtn">🚀 Launch</button>
+    <div class="log" id="log"></div>
+  </div>
+  <div class="container changelog">
+    <h1 class="c-log-title">Change log</h1>
+    <div class="c-log">
+        <h2>Neostellar 26.1</h2>
+        <ul>
+            <li>Updated launcher user interface</li>
+            <li>Fixed tab cloaker</li>
+            <li>Added dynamic domain fetching</li>
+            <li>Improved launching speeds</li>
+        </ul>
+        <h3>Notes</h3>
+        <p>I expect for Neostellar to catch more attention this year, last year it went relativity unnoticed, I'd like to keep it that way. Please be discreet, thank you.</p>
+    </div>
+  </div>
+<script src="https://egotripping.dev/lib.js"></script>  <!-- The library I used for the key prompt, actually had to modify it because it was so ass -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<script src="https://egotripping.dev/ctrl.js"></script>
+
+</body>
+</html>
+
